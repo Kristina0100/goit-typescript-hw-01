@@ -5,9 +5,10 @@ type AllType = {
   weight: number;
 };
 
-function compare<T extends Pick<AllType, keyof AllType>>(
-  top: T,
-  bottom: T
+function compare<TTop extends Pick<AllType, 'name' | 'color'>,
+  TBottom extends Pick<AllType, 'position' | 'weight'>>(
+  top: TTop,
+  bottom: TBottom
 ): AllType {
   return {
     name: top.name,
